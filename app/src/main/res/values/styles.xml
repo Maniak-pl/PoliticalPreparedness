@@ -9,6 +9,31 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <!-- TODO: Add necessary styles -->
+    <!-- Done: Add necessary styles -->
+    <style name="Match">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="Wrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Empty">
+        <item name="android:layout_width">@dimen/empty</item>
+        <item name="android:layout_height">@dimen/empty</item>
+    </style>
+
+    <style name="EmptyWrap" parent="Empty">
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Button" parent="EmptyWrap">
+        <item name="android:layout_marginStart">@dimen/default_spacing</item>
+        <item name="android:layout_marginEnd">@dimen/default_spacing</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
 
 </resources>
