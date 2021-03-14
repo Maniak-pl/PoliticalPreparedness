@@ -37,7 +37,7 @@
         <item name="android:layout_height">@dimen/empty</item>
     </style>
 
-    <style name="Button" parent="EmptyWrap">
+    <style name="Button" parent="MatchWrap">
         <item name="android:background">@color/colorPrimaryDark</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
@@ -77,6 +77,17 @@
 
     <style name="ElectionTitle" parent="MatchWrap">
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+    </style>
+
+    <!-- VoterInfoFragment-->
+
+    <style name="VoterInfoDate" parent="MatchWrap">
+        <item name="android:layout_margin">@dimen/default_spacing</item>
+    </style>
+
+    <style name="VoterInfoHeader" parent="Wrap">
+        <item name="android:layout_marginTop">@dimen/default_spacing</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
 </resources>

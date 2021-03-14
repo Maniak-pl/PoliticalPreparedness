@@ -13,9 +13,9 @@
 
     <!-- TODO: Add motion scene to hide form on vertical scroll. -->
     <androidx.constraintlayout.motion.widget.MotionLayout
-        android:padding="@dimen/default_spacing"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="@dimen/default_spacing">
 
         <!-- Done: Add visual styling and content -->
         <TextView
@@ -80,21 +80,23 @@
             app:layout_constraintTop_toBottomOf="@id/city" />
 
         <!-- Done: Add visual styling and label -->
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_search"
             style="@style/Button"
-            android:layout_width="match_parent"
             android:layout_marginTop="@dimen/default_spacing"
             android:text="@string/find_my_representatives"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/zip" />
 
         <!-- Done: Add visual styling and content -->
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_location"
             style="@style/Button"
-            android:layout_width="match_parent"
             android:layout_marginTop="@dimen/default_spacing"
             android:text="@string/use_my_location"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_search" />
 
         <!-- Done: Add visual styling and content -->
