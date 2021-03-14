@@ -20,7 +20,7 @@
         <!-- Done: Add visual styling and content -->
         <TextView
             android:id="@+id/search_title"
-            style="@style/LabelTitle"
+            style="@style/RepresentativeTitle"
             android:text="@string/representative_search"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -100,7 +100,7 @@
         <!-- Done: Add visual styling and content -->
         <TextView
             android:id="@+id/representative_title"
-            style="@style/LabelTitle"
+            style="@style/RepresentativeTitle"
             android:layout_marginTop="@dimen/default_spacing"
             android:text="@string/my_representatives"
             app:layout_constraintStart_toStartOf="parent"

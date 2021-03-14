@@ -42,12 +42,12 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="LabelTitle" parent="Wrap">
+    <!-- RepresentativeFragment-->
+
+    <style name="RepresentativeTitle" parent="Wrap">
         <item name="android:textColor">@color/black</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
     </style>
-
-    <!-- RepresentativeFragment-->
 
     <style name="RepresentativeAddress" parent="MatchWrap">
         <item name="android:inputType">textPostalAddress</item>
@@ -72,4 +72,11 @@
         <item name="android:textAlignment">center</item>
         <item name="android:visibility">gone</item>
     </style>
+
+    <!-- ElectionsFragment-->
+
+    <style name="ElectionTitle" parent="MatchWrap">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+    </style>
+
 </resources>
