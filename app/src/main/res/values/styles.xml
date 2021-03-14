@@ -29,11 +29,47 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <style name="MatchWrap" parent="Match">
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="MatchEmpty" parent="Match">
+        <item name="android:layout_height">@dimen/empty</item>
+    </style>
+
     <style name="Button" parent="EmptyWrap">
-        <item name="android:layout_marginStart">@dimen/default_spacing</item>
-        <item name="android:layout_marginEnd">@dimen/default_spacing</item>
         <item name="android:background">@color/colorPrimaryDark</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
 
+    <style name="LabelTitle" parent="Wrap">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
+    </style>
+
+    <!-- RepresentativeFragment-->
+
+    <style name="RepresentativeAddress" parent="MatchWrap">
+        <item name="android:inputType">textPostalAddress</item>
+    </style>
+
+    <style name="RepresentativeCity" parent="EmptyWrap">
+        <item name="android:inputType">textPostalAddress</item>
+    </style>
+
+    <style name="RepresentativeState" parent="Empty">
+        <item name="android:inputType">textPostalAddress</item>
+        <item name="android:entries">@array/states</item>
+    </style>
+
+    <style name="RepresentativeZip" parent="EmptyWrap">
+        <item name="android:inputType">number</item>
+        <item name="android:maxLength">5</item>
+    </style>
+
+    <style name="RepresentativePlaceholder">
+        <item name="android:gravity">center</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:visibility">gone</item>
+    </style>
 </resources>
