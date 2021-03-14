@@ -19,11 +19,11 @@ class VoterInfoViewModel(private val api: CivicsApiService, private val reposito
     val isFollowed: LiveData<Boolean>
         get() = _isFollowed
 
-    fun getElection(electionId: Int) {
+    fun checkElection(election: Election) {
         viewModelScope.launch {
-            val election = api.getElection(electionId)
             _election.value = election
-            _isFollowed.value = election != null
+            val saveElection = repository.getElection(election.id)
+            _isFollowed.value = saveElection != null
         }
     }
 
@@ -31,16 +31,21 @@ class VoterInfoViewModel(private val api: CivicsApiService, private val reposito
 
     //TODO: Add var and methods to support loading URLs
 
-    //TODO: Add var and methods to save and remove elections to local database
+    //Done: Add var and methods to save and remove elections to local database
     fun followElection() {
-        _isFollowed.value?.let { isFollow ->
-            _isFollowed.value = !isFollow
+        viewModelScope.launch {
+            _isFollowed.value?.let { isFollow ->
+                val election = election.value
+                election?.let {
+                    if (isFollow) {
+                        repository.deleteById(election.id)
+                    } else {
+                        repository.saveElection(election)
+                    }
+                    //Done: cont'd -- Populate initial state of save button to reflect proper action based on election saved status
+                    _isFollowed.value = !isFollow
+                }
+            }
         }
     }
-    //TODO: cont'd -- Populate initial state of save button to reflect proper action based on election saved status
-
-    /**
-     * Hint: The saved state can be accomplished in multiple ways. It is directly related to how elections are saved/removed from the database.
-     */
-
 }

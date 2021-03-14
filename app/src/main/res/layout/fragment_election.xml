@@ -33,6 +33,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/upcoming_elections_list"
             style="@style/MatchEmpty"
+            android:layout_marginTop="@dimen/margin_small"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
@@ -52,6 +53,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/saved_elections_list"
             style="@style/MatchEmpty"
+            android:layout_marginTop="@dimen/margin_small"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

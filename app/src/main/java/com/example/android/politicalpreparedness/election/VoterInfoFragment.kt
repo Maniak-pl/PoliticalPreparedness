@@ -32,12 +32,14 @@ class VoterInfoFragment : Fragment() {
         /**
         Hint: You will need to ensure proper data is provided from previous fragment.
          */
-        viewModel.getElection(VoterInfoFragmentArgs.fromBundle(requireArguments()).argElectionId)
 
         //TODO: Handle loading of URLs
 
-        //TODO: Handle save button UI state
-        //TODO: cont'd Handle save button clicks
+        //Done: Handle save button UI state
+        viewModel.checkElection(VoterInfoFragmentArgs.fromBundle(requireArguments()).argElection)
+
+        //Done: cont'd Handle save button clicks
+        binding.buttonFollow.setOnClickListener { viewModel.followElection() }
 
         return binding.root
     }

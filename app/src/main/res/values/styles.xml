@@ -105,11 +105,8 @@
     <!-- ElectionItem-->
 
     <style name="ElectionTitle" parent="MatchWrap">
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
-    </style>
-
-    <style name="ElectionDescription" parent="MatchWrap">
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body1</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
 </resources>

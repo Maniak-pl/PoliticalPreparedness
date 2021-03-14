@@ -58,7 +58,7 @@ class ElectionsFragment : Fragment() {
 
     //Done: Create functions to navigate to saved or upcoming election voter info
     private fun electionClick(election: Election) {
-        findNavController().navigate(ElectionsFragmentDirections.actionElectionsFragmentToVoterInfoFragment(election.id, election.division))
+        findNavController().navigate(ElectionsFragmentDirections.actionElectionsFragmentToVoterInfoFragment(election, election.division))
     }
 
     //Done: Refresh adapters when fragment loads

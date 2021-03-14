@@ -5,19 +5,24 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 
 class ElectionRepository(private val electionDao: ElectionDao, private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO) : ElectionDataSource {
-    override suspend fun getElections(): List<Election> {
-        TODO("Not yet implemented")
+
+    //Done: Add get elections
+    override suspend fun getElections(): List<Election> = with(ioDispatcher) {
+        return electionDao.getElections()
     }
 
-    override suspend fun saveElection(election: Election) {
-        TODO("Not yet implemented")
+    //Done: Add save election
+    override suspend fun saveElection(election: Election) = with(ioDispatcher) {
+        electionDao.insertElection(election)
     }
 
-    override suspend fun getElection(id: Int): Election? {
-        TODO("Not yet implemented")
+    //Done: Add get election by id
+    override suspend fun getElection(id: Int): Election? = with(ioDispatcher) {
+        return electionDao.getElectionById(id)
     }
 
-    override suspend fun deleteById(id: Int) {
-        TODO("Not yet implemented")
+    //Done: Add delete election by id
+    override suspend fun deleteById(id: Int) = with(ioDispatcher) {
+        electionDao.deleteById(id)
     }
 }

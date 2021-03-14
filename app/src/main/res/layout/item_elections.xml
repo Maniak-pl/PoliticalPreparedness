@@ -11,7 +11,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_small">
 
         <TextView
             android:id="@+id/title"
@@ -23,8 +24,7 @@
 
         <TextView
             android:id="@+id/description"
-            style="@style/ElectionDescription"
-            android:layout_marginTop="@dimen/margin_small"
+            style="@style/MatchWrap"
             android:text="@{data.electionDay.toString()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
