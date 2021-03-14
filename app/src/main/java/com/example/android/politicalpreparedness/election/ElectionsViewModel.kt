@@ -3,10 +3,12 @@ package com.example.android.politicalpreparedness.election
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.android.politicalpreparedness.database.ElectionRepository
+import com.example.android.politicalpreparedness.network.CivicsApiService
 import com.example.android.politicalpreparedness.network.models.Election
 
-//TODO: Construct ViewModel and provide election datasource
-class ElectionsViewModel: ViewModel() {
+//Done: Construct ViewModel and provide election datasource
+class ElectionsViewModel(private val api: CivicsApiService, private val repository: ElectionRepository) : ViewModel() {
 
     //Done: Create live data val for upcoming elections
     private val _electionList = MutableLiveData<List<Election>>()
