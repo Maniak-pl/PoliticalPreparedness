@@ -14,6 +14,7 @@ import androidx.fragment.app.viewModels
 import com.example.android.politicalpreparedness.R
 import com.example.android.politicalpreparedness.databinding.FragmentRepresentativeBinding
 import com.example.android.politicalpreparedness.network.models.Address
+import com.example.android.politicalpreparedness.representative.adapter.RepresentativeListAdapter
 import java.util.*
 
 class RepresentativeFragment : Fragment() {
@@ -28,20 +29,30 @@ class RepresentativeFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
 
         //Done: Establish bindings
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_representative, container, false)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
 
-        //TODO: Define and assign Representative adapter
-
-        //TODO: Populate Representative adapter
+        setupRecyclerView()
 
         //TODO: Establish button listeners for field and location search
 
         return binding.root
+    }
+
+    private fun setupRecyclerView() {
+
+        //Done: Define and assign Representative adapter
+        val adapter = RepresentativeListAdapter()
+        binding.listRepresentatives.adapter = adapter
+
+        //Done: Populate Representative adapter
+        viewModel.representativeList.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            it.let { adapter::submitList }
+        })
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

@@ -112,7 +112,6 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_representatives"
             style="@style/Empty"
-            android:liveData="@{viewModel.representativeList}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

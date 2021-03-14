@@ -90,4 +90,16 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <!-- RepresentativeViewHolder-->
+
+    <style name="ProfileImage">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+    </style>
+
+    <style name="SocialIcon">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+    </style>
+
 </resources>
