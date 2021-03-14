@@ -27,6 +27,7 @@ private val retrofit = Retrofit.Builder()
 
 interface CivicsApiService {
     fun getElection(electionId: Int): Election?
+    fun getElections(): List<Election>
     //TODO: Add elections API Call
 
     //TODO: Add voterinfo API Call

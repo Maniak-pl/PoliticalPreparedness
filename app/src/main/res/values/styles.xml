@@ -75,7 +75,7 @@
 
     <!-- ElectionsFragment-->
 
-    <style name="ElectionTitle" parent="MatchWrap">
+    <style name="ElectionsTitle" parent="MatchWrap">
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
     </style>
 
@@ -90,7 +90,7 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <!-- RepresentativeViewHolder-->
+    <!-- RepresentativeItem-->
 
     <style name="ProfileImage">
         <item name="android:layout_width">48dp</item>
@@ -100,6 +100,16 @@
     <style name="SocialIcon">
         <item name="android:layout_width">24dp</item>
         <item name="android:layout_height">24dp</item>
+    </style>
+
+    <!-- ElectionItem-->
+
+    <style name="ElectionTitle" parent="MatchWrap">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
+    </style>
+
+    <style name="ElectionDescription" parent="MatchWrap">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body1</item>
     </style>
 
 </resources>

@@ -25,7 +25,7 @@
         <!-- Done: Add Upcoming Election Recycler and Header -->
         <TextView
             android:id="@+id/upcoming_elections_label"
-            style="@style/ElectionTitle"
+            style="@style/ElectionsTitle"
             android:text="@string/upcoming_elections"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -33,7 +33,6 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/upcoming_elections_list"
             style="@style/MatchEmpty"
-            android:liveData="@{viewModel.electionList}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +42,7 @@
         <!-- Done: Add Saved Election Recycler and Header -->
         <TextView
             android:id="@+id/saved_elections_label"
-            style="@style/ElectionTitle"
+            style="@style/ElectionsTitle"
             android:paddingTop="@dimen/default_spacing"
             android:text="@string/saved_elections"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +52,6 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/saved_elections_list"
             style="@style/MatchEmpty"
-            android:liveData="@{viewModel.savedElectionList}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
