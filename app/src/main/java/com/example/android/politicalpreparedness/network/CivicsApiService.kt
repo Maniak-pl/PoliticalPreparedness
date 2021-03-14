@@ -1,5 +1,6 @@
 package com.example.android.politicalpreparedness.network
 
+import com.example.android.politicalpreparedness.network.models.Election
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -25,6 +26,7 @@ private val retrofit = Retrofit.Builder()
  */
 
 interface CivicsApiService {
+    fun getElection(electionId: Int): Election?
     //TODO: Add elections API Call
 
     //TODO: Add voterinfo API Call
