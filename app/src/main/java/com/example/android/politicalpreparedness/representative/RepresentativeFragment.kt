@@ -11,6 +11,7 @@ import android.view.inputmethod.InputMethodManager
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.observe
 import com.example.android.politicalpreparedness.R
 import com.example.android.politicalpreparedness.databinding.FragmentRepresentativeBinding
 import com.example.android.politicalpreparedness.network.models.Address
@@ -39,6 +40,9 @@ class RepresentativeFragment : Fragment() {
         setupRecyclerView()
 
         //TODO: Establish button listeners for field and location search
+        binding.buttonSearch.setOnClickListener {
+            viewModel.findRepresentatives()
+        }
 
         return binding.root
     }
@@ -50,9 +54,9 @@ class RepresentativeFragment : Fragment() {
         binding.listRepresentatives.adapter = adapter
 
         //Done: Populate Representative adapter
-        viewModel.representativeList.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-            it.let { adapter::submitList }
-        })
+        viewModel.representativeList.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
