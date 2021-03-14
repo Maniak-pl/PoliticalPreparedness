@@ -4,25 +4,36 @@ import android.content.Context
 import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.example.android.politicalpreparedness.R
+import com.example.android.politicalpreparedness.databinding.FragmentRepresentativeBinding
 import com.example.android.politicalpreparedness.network.models.Address
-import java.util.Locale
+import java.util.*
 
-class DetailFragment : Fragment() {
+class RepresentativeFragment : Fragment() {
 
     companion object {
         //TODO: Add Constant for Location request
     }
 
-    //TODO: Declare ViewModel
+    //Done: Declare ViewModel
+    val viewModel: RepresentativeViewModel by viewModels { RepresentativeViewModelFactory() }
+    private lateinit var binding: FragmentRepresentativeBinding
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        //TODO: Establish bindings
+        //Done: Establish bindings
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_representative, container, false)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
 
         //TODO: Define and assign Representative adapter
 
@@ -30,6 +41,7 @@ class DetailFragment : Fragment() {
 
         //TODO: Establish button listeners for field and location search
 
+        return binding.root
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
@@ -46,8 +58,9 @@ class DetailFragment : Fragment() {
         }
     }
 
-    private fun isPermissionGranted() : Boolean {
+    private fun isPermissionGranted(): Boolean {
         //TODO: Check if permission is already granted and return (true = granted, false = denied/other)
+        return false
     }
 
     private fun getLocation() {
