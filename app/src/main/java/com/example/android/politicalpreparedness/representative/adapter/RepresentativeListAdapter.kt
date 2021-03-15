@@ -104,6 +104,3 @@ class RepresentativeDiffCallback : DiffUtil.ItemCallback<Representative>() {
         return oldItem == newItem
     }
 }
-
-
-//TODO: Create RepresentativeListener

@@ -48,9 +48,14 @@ class RepresentativeFragment : Fragment() {
 
         setupRecyclerView()
 
-        //TODO: Establish button listeners for field and location search
+        //Done: Establish button listeners for field and location search
         binding.buttonSearch.setOnClickListener {
-            viewModel.findRepresentatives()
+            val address1 = binding.addressLine1.text
+            val address2 = binding.addressLine2.text
+            val state = binding.state.getItemAtPosition(binding.state.selectedItemPosition)
+            val city = binding.city.text
+            val zip = binding.zip.text
+            viewModel.findRepresentatives("$address2 $address1, $city, $state, $zip")
         }
 
         binding.buttonLocation.setOnClickListener {

@@ -21,15 +21,14 @@ class RepresentativeViewModel(val api: CivicsApiService) : ViewModel() {
         get() = _address
 
     //Done: Create function to fetch representatives from API from a provided address
-    fun findRepresentatives() {
-        _address.value?.let { address ->
-            viewModelScope.launch {
-                try {
-                    val (offices, officials) = api.getRepresentativesAsync(address.toFormattedString()).await()
-                    _representatives.value = offices.flatMap { office -> office.getRepresentatives(officials) }
-                } catch (e: Exception) {
-                    Log.e("Representative", e.localizedMessage)
-                }
+    //Done: Create function to get address from individual fields
+    fun findRepresentatives(address: String) {
+        viewModelScope.launch {
+            try {
+                val (offices, officials) = api.getRepresentativesAsync(address).await()
+                _representatives.value = offices.flatMap { office -> office.getRepresentatives(officials) }
+            } catch (e: Exception) {
+                Log.e("Representative", e.localizedMessage)
             }
         }
     }
@@ -38,7 +37,4 @@ class RepresentativeViewModel(val api: CivicsApiService) : ViewModel() {
     fun setAddress(address: Address) {
         _address.value = address
     }
-
-    //TODO: Create function to get address from individual fields
-
 }
