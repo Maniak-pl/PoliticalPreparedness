@@ -34,7 +34,10 @@ class RepresentativeViewModel(val api: CivicsApiService) : ViewModel() {
         }
     }
 
-    //TODO: Create function get address from geo location
+    //Done: Create function get address from geo location
+    fun setAddress(address: Address) {
+        _address.value = address
+    }
 
     //TODO: Create function to get address from individual fields
 
