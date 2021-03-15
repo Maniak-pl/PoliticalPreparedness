@@ -1,6 +1,8 @@
 package com.example.android.politicalpreparedness.election
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +10,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.observe
 import com.example.android.politicalpreparedness.R
 import com.example.android.politicalpreparedness.databinding.FragmentVoterInfoBinding
 
@@ -28,15 +31,17 @@ class VoterInfoFragment : Fragment() {
         //Done: Add binding values
         binding.viewModel = viewModel
 
-        //TODO: Populate voter info -- hide views without provided data.
-        /**
-        Hint: You will need to ensure proper data is provided from previous fragment.
-         */
-
-        //TODO: Handle loading of URLs
-
         //Done: Handle save button UI state
-        viewModel.checkElection(VoterInfoFragmentArgs.fromBundle(requireArguments()).argElection)
+        val args = VoterInfoFragmentArgs.fromBundle(requireArguments())
+        viewModel.checkElection(args.argElection)
+
+        //Done: Populate voter info -- hide views without provided data.
+        viewModel.getVoterInfo(args.argElection)
+
+        //Done: Handle loading of URLs
+        viewModel.url.observe(viewLifecycleOwner) {
+            startWeb(it)
+        }
 
         //Done: cont'd Handle save button clicks
         binding.buttonFollow.setOnClickListener { viewModel.followElection() }
@@ -44,6 +49,9 @@ class VoterInfoFragment : Fragment() {
         return binding.root
     }
 
-    //TODO: Create method to load URL intents
-
+    //Done: Create method to load URL intents
+    private fun startWeb(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(intent)
+    }
 }
