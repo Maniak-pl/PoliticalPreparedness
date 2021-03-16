@@ -8,6 +8,7 @@ import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,6 +24,7 @@ import com.example.android.politicalpreparedness.network.models.Address
 import com.example.android.politicalpreparedness.representative.adapter.RepresentativeListAdapter
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import java.lang.Exception
 import java.util.*
 
 class RepresentativeFragment : Fragment() {
@@ -115,8 +117,12 @@ class RepresentativeFragment : Fragment() {
 
         //Done: The geoCodeLocation method is a helper function to change the lat/long location to a human readable street address
         fusedLocationClient.lastLocation.addOnSuccessListener { location ->
-            val address = geoCodeLocation(location)
-            viewModel.setAddress(address)
+            try {
+                val address = geoCodeLocation(location)
+                viewModel.setAddress(address)
+            } catch (e: Exception) {
+                Log.e("Representative", e.localizedMessage)
+            }
         }
     }
 
